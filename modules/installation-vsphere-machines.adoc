@@ -34,7 +34,7 @@ $ base64 -w0 <installation_directory>/worker.ign > <installation_directory>/work
 +
 [source,terminal]
 ----
-$ base64 -w0 <installation_directory>/append-bootstrap.ign > <installation_directory>/append-bootstrap.64
+$ base64 -w0 <installation_directory>/bootstrap.ign > <installation_directory>/bootstrap.64
 ----
 +
 [IMPORTANT]
@@ -127,6 +127,7 @@ $ govc vm.change -vm "<vm_name>" -e "guestinfo.afterburn.initrd.network-kargs=${
 **** Navigate to a virtual machine from the vCenter Server inventory.
 **** On the *Configure* tab, expand *Settings* and select *vApp options.*
 **** Scroll down and under *Properties*, apply the configurations that you just edited.
+**** Note: For the bootstrap node, ignition must be provided in `guestinfo.ignition.config.data` in the *Configuration Parameters* window.  This is due to a restriction in the maximum size of data which may be provided in a vApp property.
 .. In the *Virtual Hardware* panel of the *Customize hardware* tab, modify the specified values as required. Ensure that the amount of RAM, CPU, and disk storage meets the minimum requirements for the
 machine type.
 .. Complete the configuration and power on the VM.
